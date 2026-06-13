@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#050505" />
+    <meta name="description" content="AETERNUM — a gothic interactive relic. Memento Mori: remember that you must die." />
+    <meta name="author" content="asadbekXodjayev" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="AETERNUM · Memento Mori" />
+    <meta property="og:description" content="A dark, mysterious Three.js relic forged in the void." />
+    <meta property="og:type" content="website" />
+
+    <title>AETERNUM · Memento Mori</title>
+
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23050506'/%3E%3Cpath d='M16 5l3 8 8 3-8 3-3 8-3-8-8-3 8-3z' fill='%23d8b15a'/%3E%3C/svg%3E"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap"
+      rel="stylesheet"
+    />
+
+    <script>
+      // Flip the no-js flag the instant JS runs, so we can hide the
+      // <noscript> notice and progressively enhance.
+      document.documentElement.classList.remove('no-js');
+      document.documentElement.classList.add('js');
+    </script>
+  </head>
+  <body>
+    <noscript>
+      <div class="noscript">
+        <h1>AETERNUM</h1>
+        <p>This relic requires JavaScript to awaken. Please enable it.</p>
+      </div>
+    </noscript>
+
+    <!-- Preloader -->
+    <div class="preloader" id="preloader" aria-hidden="true">
+      <div class="preloader__inner">
+        <div class="preloader__mark">✦</div>
+        <div class="preloader__title">AETERNUM</div>
+        <div class="preloader__bar"><span id="preloader-fill"></span></div>
+        <div class="preloader__count"><span id="preloader-pct">0</span><i>%</i></div>
+        <div class="preloader__hint">forging the relic</div>
+      </div>
+    </div>
+
+    <!-- The WebGL stage is fixed behind the scrolling content -->
+    <canvas id="stage" class="stage"></canvas>
+    <div class="grain" aria-hidden="true"></div>
+    <div class="vignette" aria-hidden="true"></div>
+
+    <!-- Fixed chrome -->
+    <header class="chrome chrome--top">
+      <div class="chrome__brand">AETERNUM</div>
+      <nav class="chrome__nav" aria-label="chapters">
+        <a href="#descent" data-nav>I</a>
+        <a href="#relic" data-nav>II</a>
+        <a href="#reckoning" data-nav>III</a>
+        <a href="#eternity" data-nav>IV</a>
+      </nav>
+      <button class="chrome__sound" id="sound-toggle" aria-pressed="false" aria-label="Toggle ambient sound">
+        <span class="chrome__sound-bars"><i></i><i></i><i></i><i></i></span>
+        <span class="chrome__sound-label">silence</span>
+      </button>
+    </header>
+
+    <!-- Scroll narrative -->
+    <main class="scroll" id="scroll">
+      <!-- 00 — Hero -->
+      <section class="panel panel--hero" id="hero">
+        <p class="panel__kicker" data-reveal>MMXXVI · A RELIC IN THE VOID</p>
+        <h1 class="panel__title display" data-reveal>
+          <span>AE</span><span>TER</span><span>NUM</span>
+        </h1>
+        <p class="panel__lede" data-reveal>
+          Memento mori — remember that you must die.
+        </p>
+        <div class="scroll-cue" data-reveal>
+          <span>descend</span>
+          <i></i>
+        </div>
+      </section>
+
+      <!-- 01 — Descent -->
+      <section class="panel panel--right" id="descent">
+        <div class="panel__num">I</div>
+        <div class="panel__block">
+          <h2 class="display" data-reveal>The Descent</h2>
+          <p data-reveal>
+            Below the last light there is a stone that was never quarried.
+            It turns in the dark, indifferent, older than the names we gave it.
+          </p>
+          <p data-reveal>
+            We came down to look upon it. None of us came back unchanged.
+          </p>
+        </div>
+      </section>
+
+      <!-- 02 — Relic -->
+      <section class="panel panel--left" id="relic">
+        <div class="panel__num">II</div>
+        <div class="panel__block">
+          <h2 class="display" data-reveal>The Relic</h2>
+          <p data-reveal>
+            Its surface drinks the light and answers in embers. Fracture it,
+            and it does not break — it remembers a shape from before the world.
+          </p>
+          <ul class="panel__list" data-reveal>
+            <li><span>forged</span> before the first dawn</li>
+            <li><span>weight</span> the sum of every silence</li>
+            <li><span>purpose</span> unknown · feared · adored</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 03 — Reckoning -->
+      <section class="panel panel--center" id="reckoning">
+        <div class="panel__num">III</div>
+        <div class="panel__block panel__block--wide">
+          <h2 class="display" data-reveal>The Reckoning</h2>
+          <p data-reveal>
+            It opens. A furnace where a heart should be. For one held breath
+            the void is the colour of blood and gold, and everything you were
+            is weighed against nothing at all.
+          </p>
+        </div>
+      </section>
+
+      <!-- 04 — Eternity -->
+      <section class="panel panel--center" id="eternity">
+        <div class="panel__num">IV</div>
+        <div class="panel__block panel__block--wide">
+          <h2 class="display" data-reveal>Eternity</h2>
+          <p data-reveal>
+            The shards return to stillness. The relic forgets you, as it forgets
+            all things, and turns again in the dark — waiting for the next to descend.
+          </p>
+          <p class="panel__sign" data-reveal>ÆTERNVM · MEMENTO · MORI</p>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="footer" id="footer">
+        <div class="footer__rule"></div>
+        <div class="footer__grid">
+          <div>
+            <div class="footer__mark">✦</div>
+            <p class="footer__copy">
+              An interactive relic, forged in WebGL.<br />
+              Built with Three.js · GSAP · Lenis.
+            </p>
+          </div>
+          <div class="footer__meta">
+            <a href="https://github.com/asadbekXodjayev/ThreeJs" target="_blank" rel="noopener">SOURCE ↗</a>
+            <span>MMXXVI</span>
+            <button data-totop>RETURN TO THE SURFACE ↑</button>
+          </div>
+        </div>
+      </footer>
+    </main>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
