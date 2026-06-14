@@ -7,11 +7,22 @@ import { Post } from './Post.js';
 // Camera + relic + atmosphere keyframes along the scroll (progress 0 → 1).
 // Each chapter is a stop the camera eases between as you descend.
 const KEYS = [
-  { at: 0.0,  pos: [0, 0.4, 9.5],  look: [0, 0, 0],     ignite: 0.0,  fracture: 0.0,  displace: 0.16, spin: 0.08 },
-  { at: 0.25, pos: [4.2, 1.6, 6.0], look: [0, 0.2, 0],   ignite: 0.08, fracture: 0.1,  displace: 0.22, spin: 0.14 },
-  { at: 0.5,  pos: [-3.8, -1.2, 5.2], look: [0, 0, 0],   ignite: 0.25, fracture: 0.55, displace: 0.3,  spin: 0.22 },
-  { at: 0.75, pos: [0, 0.2, 4.7],   look: [0, 0, 0],     ignite: 1.0,  fracture: 0.8,  displace: 0.42, spin: 0.5 },
-  { at: 1.0,  pos: [0, 1.0, 8.0],   look: [0, 0, 0],     ignite: 0.12, fracture: 0.05, displace: 0.18, spin: 0.1 },
+  // Hero — the relic at rest in the void
+  { at: 0.0,  pos: [0, 0.4, 9.5],    look: [0, 0, 0],   ignite: 0.0,  fracture: 0.0,  displace: 0.16, spin: 0.08 },
+  // I · Descent — circle in, first embers wake
+  { at: 0.13, pos: [4.2, 1.6, 6.4],  look: [0, 0.2, 0], ignite: 0.07, fracture: 0.08, displace: 0.2,  spin: 0.13 },
+  // II · Relic — close pass, cracks spread
+  { at: 0.27, pos: [-3.8, -1.0, 5.6], look: [0, 0, 0],  ignite: 0.18, fracture: 0.3,  displace: 0.27, spin: 0.2 },
+  // III · Vigil — the indrawn breath: it dims, seals, gathers
+  { at: 0.42, pos: [2.4, -1.6, 5.4],  look: [0, 0, 0],  ignite: 0.09, fracture: 0.16, displace: 0.21, spin: 0.09 },
+  // IV · Reckoning — the furnace opens
+  { at: 0.56, pos: [-2.2, 0.6, 4.7],  look: [0, 0, 0],  ignite: 0.45, fracture: 0.52, displace: 0.34, spin: 0.28 },
+  // V · Unmaking — THE PUSH: everything tears loose, the relic becomes a sun
+  { at: 0.73, pos: [0, 0.0, 3.7],     look: [0, 0, 0],  ignite: 1.0,  fracture: 1.0,  displace: 0.52, spin: 0.78 },
+  // aftershock — camera recoils, embers still raging
+  { at: 0.85, pos: [0, -0.5, 6.8],    look: [0, 0, 0],  ignite: 0.62, fracture: 0.4,  displace: 0.34, spin: 0.34 },
+  // VI · Eternity — shards settle, the relic forgets
+  { at: 1.0,  pos: [0, 1.0, 8.6],     look: [0, 0, 0],  ignite: 0.12, fracture: 0.05, displace: 0.18, spin: 0.1 },
 ];
 
 export class World {
